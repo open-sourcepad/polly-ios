@@ -10,6 +10,9 @@ import UIKit
 
 class PollySendViewController: UIViewController {
 
+    var delegate: AnyObject?
+    var textToView: String = ""
+    
     private lazy var headerLabel: UILabel = {
         let label: UILabel = UILabel(frame: CGRectMake(0.0, 100.0, self.view.frame.size.width, 30.0))
         label.textColor = COLOR_POLLY_TEXT
@@ -96,10 +99,17 @@ class PollySendViewController: UIViewController {
     }
     
     func viewNowButtonAction(sender: AnyObject) {
-        
+        self.delegate!.pollyWillViewRecordedText!(textToView)
     }
     
     func restartButtonAction(sender: AnyObject) {
         self.navigationController?.popToRootViewControllerAnimated(true)
     }
+    
+    
+}
+
+//MARK: - Delegate
+@objc protocol PollySendViewControllerDelegate {
+    optional func pollyWillViewRecordedText(textToView: String)
 }

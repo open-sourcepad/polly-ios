@@ -98,11 +98,11 @@ class SavedViewController: UIViewController, UITableViewDelegate, UITableViewDat
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         let selectedPolly = savedPollys.objectAtIndex(indexPath.row)
         let title = selectedPolly["title"] as? String
-        let urlString = selectedPolly["url"] as? String
+        let text = selectedPolly["text"] as? String
 
         let webVC = WebViewController()
         webVC.pollyTitle = title!
-        webVC.urlToOpen = urlString!
+        webVC.text = text!
         
         self.navigationController?.pushViewController(webVC, animated: true)
     }
@@ -126,10 +126,10 @@ class SavedViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         let hoodoc = ["title": "Hoodoc Meeting",
                       "date": "07/22/2016",
-                      "url": "http://wwww.twitter.com"]
+                      "text": "fssdsdfffsdfsdfsfs"]
         let scrum = ["title": "Scrum June 10",
                      "date": "06/10/2016",
-                     "url": "http://www.facebook.com"]
+                     "text": "hsample"]
         
         sampleArray = [hoodoc, scrum]
         return sampleArray

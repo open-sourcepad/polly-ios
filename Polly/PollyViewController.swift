@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class PollyViewController: UIViewController, AVAudioRecorderDelegate {
+class PollyViewController: UIViewController, AVAudioRecorderDelegate, PollySendViewControllerDelegate {
 
     var recordingSession: AVAudioSession!
     var audioRecorder: AVAudioRecorder!
@@ -29,7 +29,7 @@ class PollyViewController: UIViewController, AVAudioRecorderDelegate {
     }()
     
     private lazy var instructionLabel: UILabel = {
-        let label: UILabel = UILabel(frame: CGRectMake(self.startButton.frame.origin.x-30, self.startButton.frame.origin.y - 100.0, 300.0, 80.0))
+        let label: UILabel = UILabel(frame: CGRectMake(80, self.startButton.frame.origin.y - 100.0, SCREEN_WIDTH - 90, 100.0))
         label.textColor = COLOR_POLLY_TEXT
         label.textAlignment = .Left
         label.numberOfLines = 0
@@ -48,7 +48,7 @@ class PollyViewController: UIViewController, AVAudioRecorderDelegate {
     
     private lazy var logoImageView: UIImageView = {
         let dimension : CGFloat = 70.0
-        let imageView : UIImageView = UIImageView(frame: CGRectMake(self.instructionLabel.frame.origin.x-dimension, self.instructionLabel.frame.origin.y, dimension, dimension))
+        let imageView : UIImageView = UIImageView(frame: CGRectMake(5.0, self.instructionLabel.frame.origin.y+10, dimension, dimension))
         imageView.image = UIImage(named: "logo")
         imageView.contentMode = .ScaleAspectFit
         return imageView
@@ -165,5 +165,14 @@ class PollyViewController: UIViewController, AVAudioRecorderDelegate {
             print("Recording finished!")
         }
     }
+    
+    //MAR: PolySend Delegate
+    func pollyWillViewRecordedText(textToView: String) {
+        let webVC = WebViewController()
+        webVC.text = textToView
+        
+        self.navigationController?.popToRootViewControllerAnimated(true)
+        self.navigationController?.pushViewController(webVC, animated: true)
+    }
+    
 }
-

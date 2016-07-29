@@ -8,18 +8,28 @@
 
 import UIKit
 
-class WebViewController: UIViewController, UIWebViewDelegate {
+class WebViewController: UIViewController {
     
-    var urlToOpen: String = ""
+    var text: String = ""
     var pollyTitle: String = ""
     
     //MARK: - Lazy variables
-    private lazy var webView: UIWebView = {
-        let webView: UIWebView = UIWebView(frame: CGRectMake(0, 0.0, SCREEN_WIDTH, SCREEN_HEIGHT))
-        webView.delegate = self
-        webView.backgroundColor = UIColor.whiteColor()
-        webView.scrollView.setContentOffset(CGPointZero, animated: true)
-        return webView
+    private lazy var labelFullText: UILabel = {
+        let labelFullText: UILabel = UILabel(frame: CGRectMake(15, 0.0, SCREEN_WIDTH, 40.0))
+        labelFullText.backgroundColor = UIColor.whiteColor()
+        labelFullText.font = CustomFont(FONT_TITLE, fontSize: 14)
+        labelFullText.text = "Full Text"
+        return labelFullText
+    }()
+    
+    private lazy var textView: UITextView = {
+        let textView: UITextView = UITextView(frame: CGRectMake(15, 48.0, SCREEN_WIDTH, self.view.frame.height-40))
+        textView.backgroundColor = UIColor.whiteColor()
+        textView.font = CustomFont(FONT_DEFAULT, fontSize: 12)
+        textView.selectable = false
+        textView.editable = false
+
+        return textView
     }()
     
     private lazy var loadingIndicator: UIActivityIndicatorView = {
@@ -39,7 +49,8 @@ class WebViewController: UIViewController, UIWebViewDelegate {
     
     override func viewWillAppear(animated: Bool) {
         self.navigationController?.navigationBarHidden = false
-        webView.loadRequest(NSURLRequest(URL: NSURL(string: urlToOpen)!))
+        
+        textView.text = text
     }
     
     override func didReceiveMemoryWarning() {
@@ -54,27 +65,9 @@ class WebViewController: UIViewController, UIWebViewDelegate {
         self.view.backgroundColor = UIColor.whiteColor()
         self.title = pollyTitle
         
-        self.view.addSubview(webView)
+        self.view.addSubview(labelFullText)
+        self.view.addSubview(textView)
         self.view.addSubview(loadingIndicator)
     }
     
-    //MARK: Webview Delegate
-    func webView(webView: UIWebView, didFailLoadWithError error: NSError?) {
-        let alert = UIAlertController(title: "Cannot load webpage", message: error?.localizedDescription, preferredStyle: .Alert)
-        let ok = UIAlertAction(title: "OK", style: .Cancel, handler: nil)
-        alert.addAction(ok)
-        
-        self.presentViewController(alert, animated: true) { 
-            self.loadingIndicator.stopAnimating()
-        }
-        print("Failed to load webview \(error?.description)")
-    }
-    
-    func webViewDidStartLoad(webView: UIWebView) {
-        loadingIndicator.startAnimating()
-    }
-    
-    func webViewDidFinishLoad(webView: UIWebView) {
-        loadingIndicator.stopAnimating()
-    }
 }
