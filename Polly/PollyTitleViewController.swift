@@ -51,6 +51,10 @@ class PollyTitleViewController: UIViewController, UITextFieldDelegate {
         textField.resignFirstResponder()
         
         // Send to API...
+        
+        let vc : PollySendViewController = PollySendViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
+        
         return true
     }
 

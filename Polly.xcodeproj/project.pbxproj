@@ -17,6 +17,9 @@
 		E8745EA61D4B512F0091218B /* PollyTitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8745EA51D4B512F0091218B /* PollyTitleViewController.swift */; };
 		E8745EA91D4B54D40091218B /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = E8745EA81D4B54D40091218B /* logo.png */; };
 		E8745EAB1D4B557A0091218B /* recording.png in Resources */ = {isa = PBXBuildFile; fileRef = E8745EAA1D4B557A0091218B /* recording.png */; };
+		E8745EAD1D4B5A450091218B /* PollySendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8745EAC1D4B5A450091218B /* PollySendViewController.swift */; };
+		E8745EB01D4B5CE50091218B /* email.png in Resources */ = {isa = PBXBuildFile; fileRef = E8745EAE1D4B5CE50091218B /* email.png */; };
+		E8745EB11D4B5CE50091218B /* slack.png in Resources */ = {isa = PBXBuildFile; fileRef = E8745EAF1D4B5CE50091218B /* slack.png */; };
 		E88681121D4A091E00D7D4A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88681111D4A091E00D7D4A1 /* AppDelegate.swift */; };
 		E88681141D4A091E00D7D4A1 /* PollyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88681131D4A091E00D7D4A1 /* PollyViewController.swift */; };
 		E88681161D4A091E00D7D4A1 /* SavedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88681151D4A091E00D7D4A1 /* SavedViewController.swift */; };
@@ -38,6 +41,9 @@
 		E8745EA51D4B512F0091218B /* PollyTitleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PollyTitleViewController.swift; sourceTree = "<group>"; };
 		E8745EA81D4B54D40091218B /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = images/logo.png; sourceTree = "<group>"; };
 		E8745EAA1D4B557A0091218B /* recording.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = recording.png; path = images/recording.png; sourceTree = "<group>"; };
+		E8745EAC1D4B5A450091218B /* PollySendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PollySendViewController.swift; sourceTree = "<group>"; };
+		E8745EAE1D4B5CE50091218B /* email.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = email.png; path = images/email.png; sourceTree = "<group>"; };
+		E8745EAF1D4B5CE50091218B /* slack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = slack.png; path = images/slack.png; sourceTree = "<group>"; };
 		E886810E1D4A091E00D7D4A1 /* Polly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Polly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E88681111D4A091E00D7D4A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E88681131D4A091E00D7D4A1 /* PollyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollyViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +105,8 @@
 		E8745EA71D4B54CC0091218B /* images */ = {
 			isa = PBXGroup;
 			children = (
+				E8745EAE1D4B5CE50091218B /* email.png */,
+				E8745EAF1D4B5CE50091218B /* slack.png */,
 				E8745EAA1D4B557A0091218B /* recording.png */,
 				E8745EA81D4B54D40091218B /* logo.png */,
 			);
@@ -132,6 +140,7 @@
 				E88681111D4A091E00D7D4A1 /* AppDelegate.swift */,
 				E88681131D4A091E00D7D4A1 /* PollyViewController.swift */,
 				E8745EA51D4B512F0091218B /* PollyTitleViewController.swift */,
+				E8745EAC1D4B5A450091218B /* PollySendViewController.swift */,
 				E88681151D4A091E00D7D4A1 /* SavedViewController.swift */,
 				542BBFEF1D4B403A00A05B88 /* WebViewController.swift */,
 				E88681171D4A091E00D7D4A1 /* Main.storyboard */,
@@ -203,11 +212,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E8745EB11D4B5CE50091218B /* slack.png in Resources */,
 				542BBFEB1D4B34FE00A05B88 /* Montserrat-Bold.otf in Resources */,
 				542BBFE71D4B2FDB00A05B88 /* Lobster 1.4.otf in Resources */,
 				E886811E1D4A091E00D7D4A1 /* LaunchScreen.storyboard in Resources */,
 				E886811B1D4A091E00D7D4A1 /* Assets.xcassets in Resources */,
 				E8745EA91D4B54D40091218B /* logo.png in Resources */,
+				E8745EB01D4B5CE50091218B /* email.png in Resources */,
 				E8745EAB1D4B557A0091218B /* recording.png in Resources */,
 				E88681191D4A091E00D7D4A1 /* Main.storyboard in Resources */,
 				542BBFEC1D4B34FE00A05B88 /* Montserrat-Regular.otf in Resources */,
@@ -270,6 +281,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E88681161D4A091E00D7D4A1 /* SavedViewController.swift in Sources */,
+				E8745EAD1D4B5A450091218B /* PollySendViewController.swift in Sources */,
 				542BBFF01D4B403A00A05B88 /* WebViewController.swift in Sources */,
 				E88681121D4A091E00D7D4A1 /* AppDelegate.swift in Sources */,
 				E88681141D4A091E00D7D4A1 /* PollyViewController.swift in Sources */,

@@ -57,8 +57,11 @@ class PollyViewController: UIViewController, AVAudioRecorderDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
+        self.title = "Polly"
         self.view.backgroundColor = UIColor.whiteColor()
+        self.automaticallyAdjustsScrollViewInsets = false
+        self.edgesForExtendedLayout = .None
+        
         self.view.addSubview(self.startButton)
         self.view.addSubview(self.instructionLabel)
         self.view.addSubview(self.recordingImageView)
