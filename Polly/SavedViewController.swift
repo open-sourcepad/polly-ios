@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SavedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class SavedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, PollyControllerDelegate {
 
     var savedPollys: NSArray = []
     
@@ -47,8 +47,12 @@ class SavedViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         configureView()
         
-        savedPollys = samplePollyData
-        tableView.reloadData()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
+        
+        PollyController.getPollies(self)
     }
 
     override func didReceiveMemoryWarning() {
@@ -101,6 +105,19 @@ class SavedViewController: UIViewController, UITableViewDelegate, UITableViewDat
         webVC.urlToOpen = urlString!
         
         self.navigationController?.pushViewController(webVC, animated: true)
+    }
+    
+    // MARK: - Polly Delegate
+    func pollyController(controller: PollyController, didFailGetPolliesWithError error: NSError) {
+        print("error get pollies: \(error)")
+        let alert = UIAlertController(title: "Cannot get Pollies", message: error.localizedDescription, preferredStyle: .Alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .Cancel, handler: nil))
+        
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    func pollyController(controller: PollyController, didFinishGetPolliesWithResponse response: AnyObject) {
+        print("\npollies: \(response)\n")
     }
     
     // MARK: - Sample Data

@@ -31,62 +31,26 @@ class PollyController: NSObject {
         controller.uploadFile(fileUrl, title: title)
     }
     
-    // Sign up/sign in user via social network
+    // Get Pollies
+    class func getPollies(delegate: AnyObject) {
+        let controller = self.getInstance()
+        controller.delegate = delegate
+        controller.getPollies()
+    }
+    
     private func uploadFile(fileUrl: NSURL, title: String) {
-//        let fullPath = NSBundle.mainBundle().pathForResource("sample", ofType: "wav")!
-//        let fileUrl = NSURL.fileURLWithPath(fullPath)
         
         // Show network indicator
         UIApplication.sharedApplication().networkActivityIndicatorVisible = true
         
-//        let request = NSMutableURLRequest(URL: NSURL(string: API_BASE_URL + API_ENDPOINT_UPLOAD)!)
-        
-        let jsonData = try? NSJSONSerialization.dataWithJSONObject(["title": title], options: .PrettyPrinted)
-//        request.HTTPBody = jsonData
-        
         let manager = Alamofire.Manager.sharedInstance
-        /*
-        manager.upload(.POST, request, file: fileUrl)
-            .progress { bytesWritten, totalBytesWritten, totalBytesExpectedToWrite in
-                print(totalBytesWritten)
-                
-                // This closure is NOT called on the main queue for performance
-                // reasons. To update your ui, dispatch to the main queue.
-                dispatch_async(dispatch_get_main_queue()) {
-                    print("Total bytes written on main queue: \(totalBytesWritten)")
-                }
-            }
-            .validate()
-            .responseJSON { response in
-                switch response.result {
-                case .Success(let JSON):
-                    print("Success with JSON: \(JSON)")
-                    
-                    let response = JSON as! NSDictionary
-                    
-                    if self.delegate!.respondsToSelector(#selector(PollyControllerDelegate.pollyController(_:didFinishUploadingWithResponse:))) {
-                        self.delegate!.pollyController!(self, didFinishUploadingWithResponse: response)
-                    }
-                    
-                case .Failure(let error):
-                    print("Request failed with error: \(error)")
-                    
-                    if self.delegate!.respondsToSelector(#selector(PollyControllerDelegate.pollyController(_:didFailUploadWithError:))) {
-                        self.delegate!.pollyController!(self, didFailUploadWithError: error)
-                    }
-                }
-                
-                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
-                
-        }
-        */
         
         manager.upload(
             .POST,
-            API_BASE_URL + API_ENDPOINT_UPLOAD,
+            API_BASE_URL + API_ENDPOINT_SPEECHES,
             multipartFormData: { multipartFormData in
                 multipartFormData.appendBodyPart(fileURL: fileUrl, name: "file")
-                multipartFormData.appendBodyPart(data: jsonData!, name: "title")
+                multipartFormData.appendBodyPart(data: (title as NSString).dataUsingEncoding(NSUTF8StringEncoding)!, name: "title")
             },
             encodingCompletion: { encodingResult in
                 switch encodingResult {
@@ -123,6 +87,39 @@ class PollyController: NSObject {
         )
         
     }
+    
+    private func getPollies() {
+        
+        // Show network indicator
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+        
+        let manager = Alamofire.Manager.sharedInstance
+        
+        manager.request(.GET, API_BASE_URL + API_ENDPOINT_SPEECHES, parameters: nil, encoding: .URL, headers: nil)
+            .responseJSON(completionHandler: { response in
+                switch response.result {
+                case .Success(let JSON):
+                    print("Success with JSON: \(JSON)")
+                    
+                    let response = JSON as! NSDictionary
+                    
+                    if self.delegate!.respondsToSelector(#selector(PollyControllerDelegate.pollyController(_:didFinishGetPolliesWithResponse:))) {
+                        self.delegate!.pollyController!(self, didFinishGetPolliesWithResponse: response)
+                    }
+                    
+                case .Failure(let error):
+                    print("Request failed with error: \(error)")
+                    
+                    if self.delegate!.respondsToSelector(#selector(PollyControllerDelegate.pollyController(_:didFailGetPolliesWithError:))) {
+                        self.delegate!.pollyController!(self, didFailGetPolliesWithError: error)
+                    }
+                }
+                
+                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+            })
+        
+        
+    }
 }
 
 //MARK: - Delegate
@@ -130,4 +127,7 @@ class PollyController: NSObject {
     
     optional func pollyController(controller: PollyController, didFinishUploadingWithResponse response:AnyObject)
     optional func pollyController(controller: PollyController, didFailUploadWithError error:NSError)
+    
+    optional func pollyController(controller: PollyController, didFinishGetPolliesWithResponse response:AnyObject)
+    optional func pollyController(controller: PollyController, didFailGetPolliesWithError error:NSError)
 }
