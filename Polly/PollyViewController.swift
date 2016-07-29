@@ -159,6 +159,8 @@ class PollyViewController: UIViewController, AVAudioRecorderDelegate {
     func saveRecording()
     {
         print("Save recording")
+        let vc : PollyTitleViewController = PollyTitleViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     //MARK: AVAudioRecorderDelegate
