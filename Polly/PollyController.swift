@@ -33,7 +33,8 @@ class PollyController: NSObject {
     
     // Sign up/sign in user via social network
     private func uploadFile(fileUrl: NSURL, title: String) {
-        let fileUrl = NSURL.fileURLWithPath("sample.wav")
+        let fullPath = NSBundle.mainBundle().pathForResource("sample", ofType: "wav")!
+        let fileUrl = NSURL.fileURLWithPath(fullPath)
         
         // Show network indicator
         UIApplication.sharedApplication().networkActivityIndicatorVisible = true
@@ -114,7 +115,10 @@ class PollyController: NSObject {
                     }
                 case .Failure(let encodingError):
                     print(encodingError)
+                    
                 }
+                
+                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
             }
         )
         
