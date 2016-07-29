@@ -22,7 +22,7 @@ class PollyViewController: UIViewController, AVAudioRecorderDelegate {
         button.setTitle("Start Recording", forState: .Normal)
         button.setTitle("Stop", forState: .Selected)
         button.setTitle("Recording not Allowed", forState: .Disabled)
-        button.titleLabel?.font = UIFont.boldSystemFontOfSize(15.0)
+        button.titleLabel?.font = CustomFont(FONT_DEFAULT, fontSize: 15.0)
         button.layer.cornerRadius = 10.0
         button.addTarget(self, action: #selector(PollyViewController.startButtonAction(_:)), forControlEvents:.TouchUpInside)
         return button
@@ -34,7 +34,7 @@ class PollyViewController: UIViewController, AVAudioRecorderDelegate {
         label.textAlignment = .Left
         label.numberOfLines = 0
         label.text = "Hello there, ready to record and summarize your meeting for today?"
-        label.font = UIFont.boldSystemFontOfSize(18.0)
+        label.font = CustomFont(FONT_DEFAULT, fontSize: 18.0)
         return label
     }()
     

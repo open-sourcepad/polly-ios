@@ -17,13 +17,13 @@ class PollyTitleViewController: UIViewController, UITextFieldDelegate, PollyCont
         label.textColor = COLOR_POLLY_TEXT
         label.textAlignment = .Center
         label.text = "Title:"
-        label.font = UIFont.boldSystemFontOfSize(18.0)
+        label.font = CustomFont(FONT_DEFAULT, fontSize: 18.0)
         return label
     }()
     
     private lazy var titleTextField: UITextField = {
         let tf: UITextField = UITextField(frame: CGRectMake(30.0, 150.0, self.view.frame.size.width-60.0, 50.0))
-        tf.font = UIFont.systemFontOfSize(25.0)
+        tf.font = CustomFont(FONT_DEFAULT, fontSize: 20.0)
         tf.textColor = COLOR_POLLY_TEXT
         tf.delegate = self
         tf.borderStyle = .RoundedRect

@@ -15,7 +15,7 @@ class PollySendViewController: UIViewController {
         label.textColor = COLOR_POLLY_TEXT
         label.textAlignment = .Center
         label.text = "Where do you want to send the summary to?"
-        label.font = UIFont.boldSystemFontOfSize(15.0)
+        label.font = CustomFont(FONT_DEFAULT, fontSize: 15.0)
         label.numberOfLines = 0
         return label
     }()
@@ -43,7 +43,7 @@ class PollySendViewController: UIViewController {
         button.center = CGPointMake(self.view.center.x, button.center.y)
         button.backgroundColor = COLOR_POLLY_GREEN
         button.setTitle("View Now", forState: .Normal)
-        button.titleLabel?.font = UIFont.boldSystemFontOfSize(18.0)
+        button.titleLabel?.font = CustomFont(FONT_DEFAULT, fontSize: 18.0)
         button.setTitleColor(COLOR_POLLY_TEXT, forState: .Normal)
         button.layer.cornerRadius = 10.0
         button.addTarget(self, action: #selector(PollySendViewController.viewNowButtonAction(_:)), forControlEvents:.TouchUpInside)
@@ -55,7 +55,7 @@ class PollySendViewController: UIViewController {
         button.center = CGPointMake(self.view.center.x, button.center.y)
         button.backgroundColor = COLOR_POLLY_THEME_LIGHT
         button.setTitle("Restart", forState: .Normal)
-        button.titleLabel?.font = UIFont.boldSystemFontOfSize(18.0)
+        button.titleLabel?.font = CustomFont(FONT_DEFAULT, fontSize: 18.0)
         button.setTitleColor(COLOR_POLLY_TEXT, forState: .Normal)
         button.layer.cornerRadius = 10.0
         button.addTarget(self, action: #selector(PollySendViewController.restartButtonAction(_:)), forControlEvents:.TouchUpInside)
