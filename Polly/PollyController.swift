@@ -39,9 +39,10 @@ class PollyController: NSObject {
         let request = NSMutableURLRequest(URL: NSURL(string: API_BASE_URL + API_ENDPOINT_UPLOAD)!)
         
         let jsonData = try? NSJSONSerialization.dataWithJSONObject(["title": title], options: .PrettyPrinted)
-        request.HTTPBody = jsonData
+//        request.HTTPBody = jsonData
         
         let manager = Alamofire.Manager.sharedInstance
+        /*
         manager.upload(.POST, request, file: fileUrl)
             .progress { bytesWritten, totalBytesWritten, totalBytesExpectedToWrite in
                 print(totalBytesWritten)
@@ -75,6 +76,45 @@ class PollyController: NSObject {
                 UIApplication.sharedApplication().networkActivityIndicatorVisible = false
                 
         }
+        */
+        
+        manager.upload(
+            .POST,
+            API_BASE_URL + API_ENDPOINT_UPLOAD,
+            multipartFormData: { multipartFormData in
+                multipartFormData.appendBodyPart(fileURL: fileUrl, name: "file")
+                multipartFormData.appendBodyPart(data: jsonData!, name: "title")
+            },
+            encodingCompletion: { encodingResult in
+                switch encodingResult {
+                case .Success(let upload, _, _):
+                    upload.responseJSON { response in
+                        debugPrint(response)
+                        
+                        switch response.result {
+                        case .Success(let JSON):
+                            print("Success with JSON: \(JSON)")
+                            
+                            let response = JSON as! NSDictionary
+                            
+                            if self.delegate!.respondsToSelector(#selector(PollyControllerDelegate.pollyController(_:didFinishUploadingWithResponse:))) {
+                                self.delegate!.pollyController!(self, didFinishUploadingWithResponse: response)
+                            }
+                            
+                        case .Failure(let error):
+                            print("Request failed with error: \(error)")
+                            
+                            if self.delegate!.respondsToSelector(#selector(PollyControllerDelegate.pollyController(_:didFailUploadWithError:))) {
+                                self.delegate!.pollyController!(self, didFailUploadWithError: error)
+                            }
+                        }
+                        
+                    }
+                case .Failure(let encodingError):
+                    print(encodingError)
+                }
+            }
+        )
         
     }
 }
