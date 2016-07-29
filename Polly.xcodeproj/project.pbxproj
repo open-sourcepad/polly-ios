@@ -20,6 +20,7 @@
 		E8745EAD1D4B5A450091218B /* PollySendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8745EAC1D4B5A450091218B /* PollySendViewController.swift */; };
 		E8745EB01D4B5CE50091218B /* email.png in Resources */ = {isa = PBXBuildFile; fileRef = E8745EAE1D4B5CE50091218B /* email.png */; };
 		E8745EB11D4B5CE50091218B /* slack.png in Resources */ = {isa = PBXBuildFile; fileRef = E8745EAF1D4B5CE50091218B /* slack.png */; };
+		E8745EB31D4B6AB20091218B /* sample.wav in Resources */ = {isa = PBXBuildFile; fileRef = E8745EB21D4B6AB20091218B /* sample.wav */; };
 		E88681121D4A091E00D7D4A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88681111D4A091E00D7D4A1 /* AppDelegate.swift */; };
 		E88681141D4A091E00D7D4A1 /* PollyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88681131D4A091E00D7D4A1 /* PollyViewController.swift */; };
 		E88681161D4A091E00D7D4A1 /* SavedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88681151D4A091E00D7D4A1 /* SavedViewController.swift */; };
@@ -44,6 +45,7 @@
 		E8745EAC1D4B5A450091218B /* PollySendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PollySendViewController.swift; sourceTree = "<group>"; };
 		E8745EAE1D4B5CE50091218B /* email.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = email.png; path = images/email.png; sourceTree = "<group>"; };
 		E8745EAF1D4B5CE50091218B /* slack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = slack.png; path = images/slack.png; sourceTree = "<group>"; };
+		E8745EB21D4B6AB20091218B /* sample.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = sample.wav; path = Polly/sample.wav; sourceTree = "<group>"; };
 		E886810E1D4A091E00D7D4A1 /* Polly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Polly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E88681111D4A091E00D7D4A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E88681131D4A091E00D7D4A1 /* PollyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollyViewController.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 		E88681051D4A091E00D7D4A1 = {
 			isa = PBXGroup;
 			children = (
+				E8745EB21D4B6AB20091218B /* sample.wav */,
 				E8271A8D1D4B0AC70051AA89 /* Constants.swift */,
 				E88681101D4A091E00D7D4A1 /* Polly */,
 				E886810F1D4A091E00D7D4A1 /* Products */,
@@ -220,6 +223,7 @@
 				E8745EA91D4B54D40091218B /* logo.png in Resources */,
 				E8745EB01D4B5CE50091218B /* email.png in Resources */,
 				E8745EAB1D4B557A0091218B /* recording.png in Resources */,
+				E8745EB31D4B6AB20091218B /* sample.wav in Resources */,
 				E88681191D4A091E00D7D4A1 /* Main.storyboard in Resources */,
 				542BBFEC1D4B34FE00A05B88 /* Montserrat-Regular.otf in Resources */,
 			);
