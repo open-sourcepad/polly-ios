@@ -29,6 +29,15 @@ let COLOR_POLLY_THEME_LIGHT = UIColorFromHEX("A98DA2")
 let COLOR_POLLY_THEME_DARK = UIColorFromHEX("6F677B")
 let COLOR_POLLY_TEXT = UIColorFromHEX("434343")
 
+// MARK: FONTS
+func CustomFont(fontName: String, fontSize: CGFloat) -> UIFont{
+    return UIFont(name: fontName, size: fontSize)!
+}
+
 let FONT_LOGO = "Lobster1.4"
 let FONT_TITLE = "Montserrat-Bold"
 let FONT_DEFAULT = "Montserrat-Regular"
+
+// MARK: SCREEN CONSTANTS
+let SCREEN_WIDTH:CGFloat      =     UIScreen.mainScreen().bounds.size.width
+let SCREEN_HEIGHT:CGFloat     =     UIScreen.mainScreen().bounds.size.height
