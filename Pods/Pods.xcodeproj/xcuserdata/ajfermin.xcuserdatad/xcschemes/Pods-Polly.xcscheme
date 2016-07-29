@@ -60,6 +60,7 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
+<<<<<<< HEAD:Pods/Pods.xcodeproj/xcuserdata/nikkifernandez.xcuserdatad/xcschemes/Pods-Polly.xcscheme
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
@@ -69,6 +70,8 @@
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
+=======
+>>>>>>> 87010308973fe68b7750d3e8d274781586bf9970:Pods/Pods.xcodeproj/xcuserdata/ajfermin.xcuserdatad/xcschemes/Pods-Polly.xcscheme
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
