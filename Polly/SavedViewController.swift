@@ -91,7 +91,16 @@ class SavedViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        let selectedPolly = savedPollys.objectAtIndex(indexPath.row)
+        let title = selectedPolly["title"] as? String
+        let urlString = selectedPolly["url"] as? String
+
+        let webVC = WebViewController()
+        webVC.pollyTitle = title!
+        webVC.urlToOpen = urlString!
         
+        self.navigationController?.pushViewController(webVC, animated: true)
     }
     
     // MARK: - Sample Data
@@ -100,7 +109,7 @@ class SavedViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         let hoodoc = ["title": "Hoodoc Meeting",
                       "date": "07/22/2016",
-                      "url": "http://wwww.google.com"]
+                      "url": "http://wwww.twitter.com"]
         let scrum = ["title": "Scrum June 10",
                      "date": "06/10/2016",
                      "url": "http://www.facebook.com"]

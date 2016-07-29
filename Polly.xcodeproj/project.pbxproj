@@ -10,6 +10,7 @@
 		542BBFE71D4B2FDB00A05B88 /* Lobster 1.4.otf in Resources */ = {isa = PBXBuildFile; fileRef = 542BBFE61D4B2FD600A05B88 /* Lobster 1.4.otf */; };
 		542BBFEB1D4B34FE00A05B88 /* Montserrat-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 542BBFE81D4B34DD00A05B88 /* Montserrat-Bold.otf */; };
 		542BBFEC1D4B34FE00A05B88 /* Montserrat-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 542BBFE91D4B34DD00A05B88 /* Montserrat-Regular.otf */; };
+		542BBFF01D4B403A00A05B88 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542BBFEF1D4B403A00A05B88 /* WebViewController.swift */; };
 		84E6E2AE8D132EE224C7709C /* Pods_Polly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DABE0516E3BCF4A5C1A8C1E /* Pods_Polly.framework */; };
 		E8271A8E1D4B0AC70051AA89 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8271A8D1D4B0AC70051AA89 /* Constants.swift */; };
 		E8271A951D4B28850051AA89 /* PollyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8271A941D4B28850051AA89 /* PollyController.swift */; };
@@ -26,6 +27,7 @@
 		542BBFE61D4B2FD600A05B88 /* Lobster 1.4.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lobster 1.4.otf"; sourceTree = "<group>"; };
 		542BBFE81D4B34DD00A05B88 /* Montserrat-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.otf"; sourceTree = "<group>"; };
 		542BBFE91D4B34DD00A05B88 /* Montserrat-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.otf"; sourceTree = "<group>"; };
+		542BBFEF1D4B403A00A05B88 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		6DABE0516E3BCF4A5C1A8C1E /* Pods_Polly.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Polly.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA30193B3C7D6E91F4958BA1 /* Pods-Polly.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Polly.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Polly/Pods-Polly.debug.xcconfig"; sourceTree = "<group>"; };
 		E8271A8D1D4B0AC70051AA89 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 				E88681111D4A091E00D7D4A1 /* AppDelegate.swift */,
 				E88681131D4A091E00D7D4A1 /* PollyViewController.swift */,
 				E88681151D4A091E00D7D4A1 /* SavedViewController.swift */,
+				542BBFEF1D4B403A00A05B88 /* WebViewController.swift */,
 				E88681171D4A091E00D7D4A1 /* Main.storyboard */,
 				E886811C1D4A091E00D7D4A1 /* LaunchScreen.storyboard */,
 				E886811F1D4A091E00D7D4A1 /* Info.plist */,
@@ -248,6 +251,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E88681161D4A091E00D7D4A1 /* SavedViewController.swift in Sources */,
+				542BBFF01D4B403A00A05B88 /* WebViewController.swift in Sources */,
 				E88681121D4A091E00D7D4A1 /* AppDelegate.swift in Sources */,
 				E88681141D4A091E00D7D4A1 /* PollyViewController.swift in Sources */,
 				E8271A951D4B28850051AA89 /* PollyController.swift in Sources */,
