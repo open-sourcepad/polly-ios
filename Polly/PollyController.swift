@@ -33,13 +33,13 @@ class PollyController: NSObject {
     
     // Sign up/sign in user via social network
     private func uploadFile(fileUrl: NSURL, title: String) {
-        let fullPath = NSBundle.mainBundle().pathForResource("sample", ofType: "wav")!
-        let fileUrl = NSURL.fileURLWithPath(fullPath)
+//        let fullPath = NSBundle.mainBundle().pathForResource("sample", ofType: "wav")!
+//        let fileUrl = NSURL.fileURLWithPath(fullPath)
         
         // Show network indicator
         UIApplication.sharedApplication().networkActivityIndicatorVisible = true
         
-        let request = NSMutableURLRequest(URL: NSURL(string: API_BASE_URL + API_ENDPOINT_UPLOAD)!)
+//        let request = NSMutableURLRequest(URL: NSURL(string: API_BASE_URL + API_ENDPOINT_UPLOAD)!)
         
         let jsonData = try? NSJSONSerialization.dataWithJSONObject(["title": title], options: .PrettyPrinted)
 //        request.HTTPBody = jsonData

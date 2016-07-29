@@ -50,6 +50,18 @@ class PollySendViewController: UIViewController {
         return button
     }()
     
+    private lazy var restartButton: UIButton = {
+        let button: UIButton = UIButton(frame: CGRectMake(0.0, self.viewNowButton.frame.origin.y + self.viewNowButton.frame.size.height + 60.0, 220.0, 40.0))
+        button.center = CGPointMake(self.view.center.x, button.center.y)
+        button.backgroundColor = COLOR_POLLY_THEME_LIGHT
+        button.setTitle("Restart", forState: .Normal)
+        button.titleLabel?.font = UIFont.boldSystemFontOfSize(18.0)
+        button.setTitleColor(COLOR_POLLY_TEXT, forState: .Normal)
+        button.layer.cornerRadius = 10.0
+        button.addTarget(self, action: #selector(PollySendViewController.restartButtonAction(_:)), forControlEvents:.TouchUpInside)
+        return button
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -60,6 +72,12 @@ class PollySendViewController: UIViewController {
         self.view.addSubview(self.slackButton)
         self.view.addSubview(self.emailButton)
         self.view.addSubview(self.viewNowButton)
+        self.view.addSubview(self.restartButton)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationItem.setHidesBackButton(true, animated: false)
     }
 
     override func didReceiveMemoryWarning() {
@@ -79,5 +97,9 @@ class PollySendViewController: UIViewController {
     
     func viewNowButtonAction(sender: AnyObject) {
         
+    }
+    
+    func restartButtonAction(sender: AnyObject) {
+        self.navigationController?.popToRootViewControllerAnimated(true)
     }
 }

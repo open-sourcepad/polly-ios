@@ -21,6 +21,7 @@
 		E8745EB01D4B5CE50091218B /* email.png in Resources */ = {isa = PBXBuildFile; fileRef = E8745EAE1D4B5CE50091218B /* email.png */; };
 		E8745EB11D4B5CE50091218B /* slack.png in Resources */ = {isa = PBXBuildFile; fileRef = E8745EAF1D4B5CE50091218B /* slack.png */; };
 		E8745EB31D4B6AB20091218B /* sample.wav in Resources */ = {isa = PBXBuildFile; fileRef = E8745EB21D4B6AB20091218B /* sample.wav */; };
+		E8745EB51D4B79D20091218B /* loading.png in Resources */ = {isa = PBXBuildFile; fileRef = E8745EB41D4B79D20091218B /* loading.png */; };
 		E88681121D4A091E00D7D4A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88681111D4A091E00D7D4A1 /* AppDelegate.swift */; };
 		E88681141D4A091E00D7D4A1 /* PollyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88681131D4A091E00D7D4A1 /* PollyViewController.swift */; };
 		E88681161D4A091E00D7D4A1 /* SavedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88681151D4A091E00D7D4A1 /* SavedViewController.swift */; };
@@ -46,6 +47,7 @@
 		E8745EAE1D4B5CE50091218B /* email.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = email.png; path = images/email.png; sourceTree = "<group>"; };
 		E8745EAF1D4B5CE50091218B /* slack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = slack.png; path = images/slack.png; sourceTree = "<group>"; };
 		E8745EB21D4B6AB20091218B /* sample.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = sample.wav; path = Polly/sample.wav; sourceTree = "<group>"; };
+		E8745EB41D4B79D20091218B /* loading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = loading.png; path = images/loading.png; sourceTree = "<group>"; };
 		E886810E1D4A091E00D7D4A1 /* Polly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Polly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E88681111D4A091E00D7D4A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E88681131D4A091E00D7D4A1 /* PollyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollyViewController.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 		E8745EA71D4B54CC0091218B /* images */ = {
 			isa = PBXGroup;
 			children = (
+				E8745EB41D4B79D20091218B /* loading.png */,
 				E8745EAE1D4B5CE50091218B /* email.png */,
 				E8745EAF1D4B5CE50091218B /* slack.png */,
 				E8745EAA1D4B557A0091218B /* recording.png */,
@@ -215,6 +218,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E8745EB51D4B79D20091218B /* loading.png in Resources */,
 				E8745EB11D4B5CE50091218B /* slack.png in Resources */,
 				542BBFEB1D4B34FE00A05B88 /* Montserrat-Bold.otf in Resources */,
 				542BBFE71D4B2FDB00A05B88 /* Lobster 1.4.otf in Resources */,

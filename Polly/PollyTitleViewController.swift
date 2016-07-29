@@ -33,6 +33,14 @@ class PollyTitleViewController: UIViewController, UITextFieldDelegate, PollyCont
         return tf
     }()
     
+    private lazy var loadingView: UIImageView = {
+        let imageView : UIImageView = UIImageView(frame: CGRectMake(0.0, 0.0, 182.0, 147.0))
+        imageView.center = CGPointMake(self.view.center.x, self.view.center.y)
+        imageView.image = UIImage(named: "loading")
+        imageView.hidden = true
+        return imageView
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -40,6 +48,7 @@ class PollyTitleViewController: UIViewController, UITextFieldDelegate, PollyCont
         self.view.backgroundColor = UIColor.whiteColor()
         self.view.addSubview(self.titleLabel)
         self.view.addSubview(self.titleTextField)
+        self.view.addSubview(self.loadingView)
     }
 
     override func didReceiveMemoryWarning() {
@@ -52,11 +61,6 @@ class PollyTitleViewController: UIViewController, UITextFieldDelegate, PollyCont
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         
-//        // Send to API...
-//        
-//        let vc : PollySendViewController = PollySendViewController()
-//        self.navigationController?.pushViewController(vc, animated: true)
-        
         var pollyTitle = titleTextField.text
         if pollyTitle == "" {
             pollyTitle = "Polly\(NSDate.timeIntervalSinceReferenceDate())"
@@ -64,6 +68,11 @@ class PollyTitleViewController: UIViewController, UITextFieldDelegate, PollyCont
         
         PollyController.uploadFile(audioUrl, title: pollyTitle!, delegate: self)
         self.view.userInteractionEnabled = false
+        
+        // Show loading
+        self.loadingView.hidden = false
+        self.titleLabel.hidden = true
+        self.titleTextField.hidden = true
         return true
     }
 
@@ -71,7 +80,9 @@ class PollyTitleViewController: UIViewController, UITextFieldDelegate, PollyCont
     func pollyController(controller: PollyController, didFinishUploadingWithResponse response: AnyObject) {
         print("success: \(response)")
         self.view.userInteractionEnabled = true
-        //TODO: next screen
+        
+        let vc : PollySendViewController = PollySendViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func pollyController(controller: PollyController, didFailUploadWithError error: NSError) {
