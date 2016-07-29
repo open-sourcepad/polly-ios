@@ -88,5 +88,8 @@ class PollyTitleViewController: UIViewController, UITextFieldDelegate, PollyCont
     func pollyController(controller: PollyController, didFailUploadWithError error: NSError) {
         print("error: \(error)")
         self.view.userInteractionEnabled = true
+        
+        let vc : PollySendViewController = PollySendViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
