@@ -14,6 +14,15 @@ class PollyViewController: UIViewController, AVAudioRecorderDelegate {
     var recordingSession: AVAudioSession!
     var audioRecorder: AVAudioRecorder!
     
+    private lazy var logoImageView: UIImageView = {
+        let image: UIImage = UIImage(named: "logo")!
+        let dimension : CGFloat = 60.0
+        let imageView: UIImageView = UIImageView(frame: CGRectMake(self.instructionLabel.frame.origin.x - dimension - 10.0, self.instructionLabel.frame.origin.y + 15.0, dimension, dimension))
+        imageView.image = image
+        imageView.contentMode = .ScaleAspectFit
+        return imageView
+    }()
+    
     private lazy var startButton: UIButton = {
         let button: UIButton = UIButton(frame: CGRectMake(0.0, 0.0, 180.0, 30.0))
         button.center = CGPointMake(self.view.center.x, self.view.center.y-80.0)
@@ -38,6 +47,14 @@ class PollyViewController: UIViewController, AVAudioRecorderDelegate {
         return label
     }()
 
+    private lazy var recordingImageView: UIImageView = {
+        let image: UIImage = UIImage(named: "recording")!
+        let imageView: UIImageView = UIImageView(frame: self.instructionLabel.frame)
+        imageView.image = image
+        imageView.hidden = true
+        //imageView.contentMode = .ScaleAspectFit
+        return imageView
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,8 +62,9 @@ class PollyViewController: UIViewController, AVAudioRecorderDelegate {
         
         self.view.backgroundColor = UIColor.whiteColor()
         self.view.addSubview(self.startButton)
+        self.view.addSubview(self.logoImageView)
         self.view.addSubview(self.instructionLabel)
-        
+        self.view.addSubview(self.recordingImageView)
         
         // Get permission to record
         recordingSession = AVAudioSession.sharedInstance()
@@ -78,6 +96,8 @@ class PollyViewController: UIViewController, AVAudioRecorderDelegate {
         
         self.startButton.selected = selected
         self.startButton.backgroundColor = selected ? COLOR_POLLY_PINK : COLOR_POLLY_GREEN
+        self.instructionLabel.hidden = selected
+        self.recordingImageView.hidden = !selected
         
         if(selected) {
             self.startRecording()
@@ -96,13 +116,13 @@ class PollyViewController: UIViewController, AVAudioRecorderDelegate {
         let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
         let documentsDirectory = paths[0]
         
-        let audioFilename = documentsDirectory.stringByAppendingString("/recording.m4a")
+        let audioFilename = documentsDirectory.stringByAppendingString("/recording.wav")
         let audioURL = NSURL(fileURLWithPath: audioFilename)
         
         print("Path: \(audioURL)")
         
         let settings = [
-            AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
+            AVFormatIDKey: Int(kAudioFormatLinearPCM), //Int(kAudioFormatMPEG4AAC),
             AVSampleRateKey: 12000.0,
             AVNumberOfChannelsKey: 1 as NSNumber,
             AVEncoderAudioQualityKey: AVAudioQuality.High.rawValue
@@ -124,6 +144,21 @@ class PollyViewController: UIViewController, AVAudioRecorderDelegate {
         audioRecorder = nil
         
         // Done recording!
+        // Ask to save
+        let alert = UIAlertController(title: "Save Now?", message: "", preferredStyle: .Alert)
+        let yesAction = UIAlertAction(title: "Yes", style: .Default, handler: { (alert) -> Void in
+            self.saveRecording()
+        })
+        let noAction = UIAlertAction(title: "No", style: .Cancel, handler: { (alert) -> Void in
+        })
+        alert.addAction(yesAction)
+        alert.addAction(noAction)
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    func saveRecording()
+    {
+        print("Save recording")
     }
     
     //MARK: AVAudioRecorderDelegate
