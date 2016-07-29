@@ -29,4 +29,6 @@ let COLOR_POLLY_THEME_LIGHT = UIColorFromHEX("A98DA2")
 let COLOR_POLLY_THEME_DARK = UIColorFromHEX("6F677B")
 let COLOR_POLLY_TEXT = UIColorFromHEX("434343")
 
-let FONT_LOBSTER = "Lobster1.4"
+let FONT_LOGO = "Lobster1.4"
+let FONT_TITLE = "Montserrat-Bold"
+let FONT_DEFAULT = "Montserrat-Regular"

@@ -47,6 +47,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.rootViewController = tabBarController
         self.window!.makeKeyAndVisible()
         
+        
+        for name in UIFont.familyNames() {
+            if let nameString = name as? String
+            {
+                print(UIFont.fontNamesForFamilyName(nameString))
+            }
+        }
         return true
     }
 
