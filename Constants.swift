@@ -41,3 +41,7 @@ let FONT_DEFAULT = "Montserrat-Regular"
 // MARK: SCREEN CONSTANTS
 let SCREEN_WIDTH:CGFloat      =     UIScreen.mainScreen().bounds.size.width
 let SCREEN_HEIGHT:CGFloat     =     UIScreen.mainScreen().bounds.size.height
+
+// MARK: API
+let API_BASE_URL = "http://flagers.herokuapp.com/api"
+let API_ENDPOINT_UPLOAD = "speeches"

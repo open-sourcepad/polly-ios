@@ -147,6 +147,7 @@ class PollyViewController: UIViewController, AVAudioRecorderDelegate {
         let alert = UIAlertController(title: "Save now?", message: "", preferredStyle: .Alert)
         let yesAction = UIAlertAction(title: "Yes", style: .Default, handler: { (alert) -> Void in
             let vc : PollyTitleViewController = PollyTitleViewController()
+            vc.audioUrl = self.audioRecorder.url
             self.navigationController?.pushViewController(vc, animated: true)
         })
         let noAction = UIAlertAction(title: "No", style: .Cancel, handler: { (alert) -> Void in
