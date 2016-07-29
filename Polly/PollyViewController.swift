@@ -141,13 +141,14 @@ class PollyViewController: UIViewController, AVAudioRecorderDelegate {
         print("End recording")
         
         audioRecorder.stop()
+        let url = audioRecorder.url
         audioRecorder = nil
         
         // Done recording!
         let alert = UIAlertController(title: "Save now?", message: "", preferredStyle: .Alert)
         let yesAction = UIAlertAction(title: "Yes", style: .Default, handler: { (alert) -> Void in
             let vc : PollyTitleViewController = PollyTitleViewController()
-            vc.audioUrl = self.audioRecorder.url
+            vc.audioUrl = url
             self.navigationController?.pushViewController(vc, animated: true)
         })
         let noAction = UIAlertAction(title: "No", style: .Cancel, handler: { (alert) -> Void in

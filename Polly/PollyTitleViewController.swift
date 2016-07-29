@@ -71,6 +71,7 @@ class PollyTitleViewController: UIViewController, UITextFieldDelegate, PollyCont
     func pollyController(controller: PollyController, didFinishUploadingWithResponse response: AnyObject) {
         print("success: \(response)")
         self.view.userInteractionEnabled = true
+        //TODO: next screen
     }
     
     func pollyController(controller: PollyController, didFailUploadWithError error: NSError) {
