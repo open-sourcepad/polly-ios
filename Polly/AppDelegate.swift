@@ -39,9 +39,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         tabBarController.viewControllers = controllers
 
         UITabBar.appearance().barTintColor = COLOR_POLLY_THEME_DARK
-        UITabBarItem.appearance().setTitleTextAttributes([NSFontAttributeName: UIFont(name:"Helvetica-Bold", size:13)!], forState: .Normal)
+        UITabBarItem.appearance().setTitleTextAttributes([NSFontAttributeName: CustomFont(FONT_TITLE, fontSize: 13)], forState: .Normal)
         UINavigationBar.appearance().tintColor = UIColor.whiteColor()
         UINavigationBar.appearance().barTintColor = COLOR_POLLY_GREEN
+        UINavigationBar.appearance().titleTextAttributes = [NSFontAttributeName: CustomFont(FONT_TITLE, fontSize: 17)]
 
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         self.window?.rootViewController = tabBarController

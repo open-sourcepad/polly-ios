@@ -7,12 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		641D4D04AF866A67FFA7241D /* Pods_Polly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3431F87DF18954C037850B1 /* Pods_Polly.framework */; };
+		542BBFE71D4B2FDB00A05B88 /* Lobster 1.4.otf in Resources */ = {isa = PBXBuildFile; fileRef = 542BBFE61D4B2FD600A05B88 /* Lobster 1.4.otf */; };
+		542BBFEB1D4B34FE00A05B88 /* Montserrat-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 542BBFE81D4B34DD00A05B88 /* Montserrat-Bold.otf */; };
+		542BBFEC1D4B34FE00A05B88 /* Montserrat-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 542BBFE91D4B34DD00A05B88 /* Montserrat-Regular.otf */; };
+		542BBFF01D4B403A00A05B88 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542BBFEF1D4B403A00A05B88 /* WebViewController.swift */; };
+		84E6E2AE8D132EE224C7709C /* Pods_Polly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DABE0516E3BCF4A5C1A8C1E /* Pods_Polly.framework */; };
 		E8271A8E1D4B0AC70051AA89 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8271A8D1D4B0AC70051AA89 /* Constants.swift */; };
 		E8271A951D4B28850051AA89 /* PollyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8271A941D4B28850051AA89 /* PollyController.swift */; };
-		E8620C131D4B31F5009CB4C9 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = E8620C121D4B31F5009CB4C9 /* logo.png */; };
-		E8620C151D4B34EE009CB4C9 /* recording.png in Resources */ = {isa = PBXBuildFile; fileRef = E8620C141D4B34EE009CB4C9 /* recording.png */; };
-		E8620C191D4B392B009CB4C9 /* PollyTitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8620C181D4B392B009CB4C9 /* PollyTitleViewController.swift */; };
 		E88681121D4A091E00D7D4A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88681111D4A091E00D7D4A1 /* AppDelegate.swift */; };
 		E88681141D4A091E00D7D4A1 /* PollyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88681131D4A091E00D7D4A1 /* PollyViewController.swift */; };
 		E88681161D4A091E00D7D4A1 /* SavedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88681151D4A091E00D7D4A1 /* SavedViewController.swift */; };
@@ -22,14 +23,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4785443710935306DFC56DE3 /* Pods-Polly.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Polly.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Polly/Pods-Polly.debug.xcconfig"; sourceTree = "<group>"; };
-		D068D3505855AB42B4F76226 /* Pods-Polly.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Polly.release.xcconfig"; path = "Pods/Target Support Files/Pods-Polly/Pods-Polly.release.xcconfig"; sourceTree = "<group>"; };
-		D3431F87DF18954C037850B1 /* Pods_Polly.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Polly.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		28FF43CF8B612FF672952A15 /* Pods-Polly.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Polly.release.xcconfig"; path = "Pods/Target Support Files/Pods-Polly/Pods-Polly.release.xcconfig"; sourceTree = "<group>"; };
+		542BBFE61D4B2FD600A05B88 /* Lobster 1.4.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lobster 1.4.otf"; sourceTree = "<group>"; };
+		542BBFE81D4B34DD00A05B88 /* Montserrat-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.otf"; sourceTree = "<group>"; };
+		542BBFE91D4B34DD00A05B88 /* Montserrat-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.otf"; sourceTree = "<group>"; };
+		542BBFEF1D4B403A00A05B88 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		6DABE0516E3BCF4A5C1A8C1E /* Pods_Polly.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Polly.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA30193B3C7D6E91F4958BA1 /* Pods-Polly.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Polly.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Polly/Pods-Polly.debug.xcconfig"; sourceTree = "<group>"; };
 		E8271A8D1D4B0AC70051AA89 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E8271A941D4B28850051AA89 /* PollyController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PollyController.swift; sourceTree = "<group>"; };
-		E8620C121D4B31F5009CB4C9 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = images/logo.png; sourceTree = "<group>"; };
-		E8620C141D4B34EE009CB4C9 /* recording.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = recording.png; path = images/recording.png; sourceTree = "<group>"; };
-		E8620C181D4B392B009CB4C9 /* PollyTitleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PollyTitleViewController.swift; sourceTree = "<group>"; };
 		E886810E1D4A091E00D7D4A1 /* Polly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Polly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E88681111D4A091E00D7D4A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E88681131D4A091E00D7D4A1 /* PollyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollyViewController.swift; sourceTree = "<group>"; };
@@ -45,26 +47,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				641D4D04AF866A67FFA7241D /* Pods_Polly.framework in Frameworks */,
+				84E6E2AE8D132EE224C7709C /* Pods_Polly.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		257D5E9B568E64FCADEBDFC3 /* Frameworks */ = {
+		542BBFEA1D4B34EB00A05B88 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				D3431F87DF18954C037850B1 /* Pods_Polly.framework */,
+				E886811A1D4A091E00D7D4A1 /* Assets.xcassets */,
+				542BBFE61D4B2FD600A05B88 /* Lobster 1.4.otf */,
+				542BBFE81D4B34DD00A05B88 /* Montserrat-Bold.otf */,
+				542BBFE91D4B34DD00A05B88 /* Montserrat-Regular.otf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		986C3386E030BC8CE1442D5D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6DABE0516E3BCF4A5C1A8C1E /* Pods_Polly.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		2DCDBEF79A78EFF9B0120B28 /* Pods */ = {
+		C1E7E79257EBB82C090972BB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				4785443710935306DFC56DE3 /* Pods-Polly.debug.xcconfig */,
-				D068D3505855AB42B4F76226 /* Pods-Polly.release.xcconfig */,
+				CA30193B3C7D6E91F4958BA1 /* Pods-Polly.debug.xcconfig */,
+				28FF43CF8B612FF672952A15 /* Pods-Polly.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -77,23 +90,14 @@
 			name = Controller;
 			sourceTree = "<group>";
 		};
-		E8620C111D4B31ED009CB4C9 /* images */ = {
-			isa = PBXGroup;
-			children = (
-				E8620C141D4B34EE009CB4C9 /* recording.png */,
-				E8620C121D4B31F5009CB4C9 /* logo.png */,
-			);
-			name = images;
-			sourceTree = "<group>";
-		};
 		E88681051D4A091E00D7D4A1 = {
 			isa = PBXGroup;
 			children = (
 				E8271A8D1D4B0AC70051AA89 /* Constants.swift */,
 				E88681101D4A091E00D7D4A1 /* Polly */,
 				E886810F1D4A091E00D7D4A1 /* Products */,
-				2DCDBEF79A78EFF9B0120B28 /* Pods */,
-				257D5E9B568E64FCADEBDFC3 /* Frameworks */,
+				C1E7E79257EBB82C090972BB /* Pods */,
+				986C3386E030BC8CE1442D5D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -108,16 +112,15 @@
 		E88681101D4A091E00D7D4A1 /* Polly */ = {
 			isa = PBXGroup;
 			children = (
-				E8620C111D4B31ED009CB4C9 /* images */,
 				E8271A931D4B28760051AA89 /* Controller */,
 				E88681111D4A091E00D7D4A1 /* AppDelegate.swift */,
 				E88681131D4A091E00D7D4A1 /* PollyViewController.swift */,
-				E8620C181D4B392B009CB4C9 /* PollyTitleViewController.swift */,
 				E88681151D4A091E00D7D4A1 /* SavedViewController.swift */,
+				542BBFEF1D4B403A00A05B88 /* WebViewController.swift */,
 				E88681171D4A091E00D7D4A1 /* Main.storyboard */,
-				E886811A1D4A091E00D7D4A1 /* Assets.xcassets */,
 				E886811C1D4A091E00D7D4A1 /* LaunchScreen.storyboard */,
 				E886811F1D4A091E00D7D4A1 /* Info.plist */,
+				542BBFEA1D4B34EB00A05B88 /* Resources */,
 			);
 			path = Polly;
 			sourceTree = "<group>";
@@ -129,12 +132,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E88681221D4A091E00D7D4A1 /* Build configuration list for PBXNativeTarget "Polly" */;
 			buildPhases = (
-				5EA874E05D033DF7C2056937 /* Check Pods Manifest.lock */,
+				C2A0AB5C1FFCB869C32C0732 /* [CP] Check Pods Manifest.lock */,
 				E886810A1D4A091E00D7D4A1 /* Sources */,
 				E886810B1D4A091E00D7D4A1 /* Frameworks */,
 				E886810C1D4A091E00D7D4A1 /* Resources */,
-				E0A01AF36DD2228A413F6615 /* Embed Pods Frameworks */,
-				F292F074C67638349741148D /* Copy Pods Resources */,
+				6A7F04453F423CCC2D5E6FFE /* [CP] Embed Pods Frameworks */,
+				0302210BBD54956321EC1865 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -183,40 +186,41 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E8620C131D4B31F5009CB4C9 /* logo.png in Resources */,
+				542BBFEB1D4B34FE00A05B88 /* Montserrat-Bold.otf in Resources */,
+				542BBFE71D4B2FDB00A05B88 /* Lobster 1.4.otf in Resources */,
 				E886811E1D4A091E00D7D4A1 /* LaunchScreen.storyboard in Resources */,
 				E886811B1D4A091E00D7D4A1 /* Assets.xcassets in Resources */,
 				E88681191D4A091E00D7D4A1 /* Main.storyboard in Resources */,
-				E8620C151D4B34EE009CB4C9 /* recording.png in Resources */,
+				542BBFEC1D4B34FE00A05B88 /* Montserrat-Regular.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		5EA874E05D033DF7C2056937 /* Check Pods Manifest.lock */ = {
+		0302210BBD54956321EC1865 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Polly/Pods-Polly-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E0A01AF36DD2228A413F6615 /* Embed Pods Frameworks */ = {
+		6A7F04453F423CCC2D5E6FFE /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -224,19 +228,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Polly/Pods-Polly-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F292F074C67638349741148D /* Copy Pods Resources */ = {
+		C2A0AB5C1FFCB869C32C0732 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Polly/Pods-Polly-resources.sh\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -246,8 +250,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E8620C191D4B392B009CB4C9 /* PollyTitleViewController.swift in Sources */,
 				E88681161D4A091E00D7D4A1 /* SavedViewController.swift in Sources */,
+				542BBFF01D4B403A00A05B88 /* WebViewController.swift in Sources */,
 				E88681121D4A091E00D7D4A1 /* AppDelegate.swift in Sources */,
 				E88681141D4A091E00D7D4A1 /* PollyViewController.swift in Sources */,
 				E8271A951D4B28850051AA89 /* PollyController.swift in Sources */,
@@ -362,7 +366,7 @@
 		};
 		E88681231D4A091E00D7D4A1 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4785443710935306DFC56DE3 /* Pods-Polly.debug.xcconfig */;
+			baseConfigurationReference = CA30193B3C7D6E91F4958BA1 /* Pods-Polly.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Polly/Info.plist;
@@ -375,7 +379,7 @@
 		};
 		E88681241D4A091E00D7D4A1 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D068D3505855AB42B4F76226 /* Pods-Polly.release.xcconfig */;
+			baseConfigurationReference = 28FF43CF8B612FF672952A15 /* Pods-Polly.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Polly/Info.plist;
