@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import MessageUI
 
-class PollySendViewController: UIViewController {
+class PollySendViewController: UIViewController, MFMailComposeViewControllerDelegate, PollyControllerDelegate {
 
-    var delegate: AnyObject?
-    var textToView: String = ""
+    var textToView: NSDictionary = [:]
     
+    //MARK: Lazy Variables
     private lazy var headerLabel: UILabel = {
         let label: UILabel = UILabel(frame: CGRectMake(0.0, 100.0, self.view.frame.size.width, 30.0))
         label.textColor = COLOR_POLLY_TEXT
@@ -65,6 +66,7 @@ class PollySendViewController: UIViewController {
         return button
     }()
     
+    //MARK: View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -88,28 +90,71 @@ class PollySendViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    //MARK - Button Actions
-    func slackButtonAction(sender: AnyObject) {
+    //MARK: Private Methods
+    func configuredMailComposeViewController() -> MFMailComposeViewController {
+        let mailComposerVC = MFMailComposeViewController()
+        mailComposerVC.mailComposeDelegate = self
+    
+        mailComposerVC.setSubject("Your summarized speech from Polly")
         
+        let text = "Hello there\nHere is the full text copy of your \(textToView["title"]) meeting.\n\n \((textToView["text"] == nil ? "" : textToView["text"] as! String))"
+        mailComposerVC.setMessageBody(text, isHTML: false)
+        
+        return mailComposerVC
+    }
+    
+    func showSendMailErrorAlert() {
+        let sendMailErrorAlert = UIAlertController(title: "Could Not Send Email", message: "Your device could not send e-mail.  Please check e-mail configuration and try again.", preferredStyle: .Alert)
+        sendMailErrorAlert.addAction(UIAlertAction(title: "OK", style: .Cancel, handler: nil))
+        
+        self.presentViewController(sendMailErrorAlert, animated: true, completion: nil)
+    }
+    
+    // MARK: MFMailComposeViewControllerDelegate Method
+    func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
+        controller.dismissViewControllerAnimated(true, completion: nil)
+    }
+
+    //MARK: - Button Actions
+    func slackButtonAction(sender: AnyObject) {
+        let pollyId: Int = textToView.objectForKey("id") as! Int
+        PollyController.sharePollyOnSlack(pollyId, delegate: self)
     }
 
     func emailButtonAction(sender: AnyObject) {
-        
+        let mailComposeViewController = configuredMailComposeViewController()
+        if MFMailComposeViewController.canSendMail() {
+            self.presentViewController(mailComposeViewController, animated: true, completion: nil)
+        } else {
+            self.showSendMailErrorAlert()
+        }
     }
     
     func viewNowButtonAction(sender: AnyObject) {
-        self.delegate!.pollyWillViewRecordedText!(textToView)
+        
+        let webVC = WebViewController()
+        webVC.text = textToView["text"] as! String
+        webVC.pollyTitle = textToView["title"] as! String
+        
+        self.navigationController?.pushViewController(webVC, animated: true)
     }
     
     func restartButtonAction(sender: AnyObject) {
         self.navigationController?.popToRootViewControllerAnimated(true)
     }
     
+    //MARK: Polly Controller Delegate
+    func pollyController(controller: PollyController, didFinishSharingOnSlackWithResponse response: AnyObject) {
+        let alert = UIAlertController(title: "Shared!", message: "Your Polly has been shared on Slack.", preferredStyle: .Alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .Cancel, handler: nil))
+        
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
     
-}
-
-//MARK: - Delegate
-@objc protocol PollySendViewControllerDelegate {
-    optional func pollyWillViewRecordedText(textToView: String)
+    func pollyController(controller: PollyController, didFailSharingOnSlackWithError error: NSError) {
+        let alert = UIAlertController(title: "Cannot Share", message: error.localizedDescription, preferredStyle: .Alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .Cancel, handler: nil))
+        
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
 }

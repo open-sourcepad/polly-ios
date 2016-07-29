@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class PollyViewController: UIViewController, AVAudioRecorderDelegate, PollySendViewControllerDelegate {
+class PollyViewController: UIViewController, AVAudioRecorderDelegate {
 
     var recordingSession: AVAudioSession!
     var audioRecorder: AVAudioRecorder!
@@ -167,9 +167,10 @@ class PollyViewController: UIViewController, AVAudioRecorderDelegate, PollySendV
     }
     
     //MAR: PolySend Delegate
-    func pollyWillViewRecordedText(textToView: String) {
+    func pollyWillViewRecordedText(textToView: NSDictionary) {
         let webVC = WebViewController()
-        webVC.text = textToView
+        webVC.text = textToView["text"] as! String
+        webVC.pollyTitle = textToView["title"] as! String
         
         self.navigationController?.popToRootViewControllerAnimated(true)
         self.navigationController?.pushViewController(webVC, animated: true)

@@ -45,3 +45,4 @@ let SCREEN_HEIGHT:CGFloat     =     UIScreen.mainScreen().bounds.size.height
 // MARK: API
 let API_BASE_URL = "http://flagers.herokuapp.com/api"
 let API_ENDPOINT_SPEECHES = "/speeches"
+let API_ENDPOINT_SLACK = "/notify_slack"

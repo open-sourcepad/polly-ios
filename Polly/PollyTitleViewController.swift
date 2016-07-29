@@ -78,15 +78,15 @@ class PollyTitleViewController: UIViewController, UITextFieldDelegate, PollyCont
 
     //MARK: Polly Delegate
     func pollyController(controller: PollyController, didFinishUploadingWithResponse response: AnyObject) {
-        print("success: \(response)")
         self.view.userInteractionEnabled = true
         
+        let text = response.objectForKey("text") as? NSDictionary
         let vc : PollySendViewController = PollySendViewController()
+        vc.textToView = text!
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func pollyController(controller: PollyController, didFailUploadWithError error: NSError) {
-        print("error: \(error)")
         self.view.userInteractionEnabled = true
         
         let vc : PollySendViewController = PollySendViewController()

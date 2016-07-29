@@ -14,7 +14,7 @@ class SavedViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     // MARK: - Lazy variables
     private lazy var tableView: UITableView = {
-        let tableView: UITableView = UITableView(frame: CGRectMake(0.0, 0.0, self.view.bounds.width, self.view.bounds.height - 60.0))
+        let tableView: UITableView = UITableView(frame: CGRectMake(0.0, 0.0, self.view.bounds.width, self.view.bounds.height - 125.0))
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -29,14 +29,14 @@ class SavedViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     private lazy var dfMMddyyyy: NSDateFormatter = {
         let df: NSDateFormatter = NSDateFormatter()
-        df.dateFormat = "MM/dd/yyyy"
+        df.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
         
         return df
     }()
     
     private lazy var dfMMMd: NSDateFormatter = {
         let df: NSDateFormatter = NSDateFormatter()
-        df.dateFormat = "MMM d"
+        df.dateFormat = "MMMM d"
         
         return df
     }()
@@ -86,9 +86,11 @@ class SavedViewController: UIViewController, UITableViewDelegate, UITableViewDat
         cell.detailTextLabel?.font = CustomFont(FONT_DEFAULT, fontSize: 11.0)
         cell.detailTextLabel?.textColor = UIColor.lightGrayColor()
 
-        let savedPolly = savedPollys.objectAtIndex(indexPath.row)
+        let savedPolly: NSDictionary = savedPollys.objectAtIndex(indexPath.row) as! NSDictionary
+        
         cell.textLabel?.text = savedPolly["title"] as? String
-        let date = dfMMddyyyy.dateFromString((savedPolly["date"] as? String)!)
+        let date = dfMMddyyyy.dateFromString(savedPolly["created_at"] as! String)
+        
         cell.detailTextLabel?.text = dfMMMd.stringFromDate(date!)
         
         return cell
@@ -102,7 +104,7 @@ class SavedViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
         let webVC = WebViewController()
         webVC.pollyTitle = title!
-        webVC.text = text!
+        webVC.text = (text == nil ? "" : text!)
         
         self.navigationController?.pushViewController(webVC, animated: true)
     }
@@ -117,7 +119,9 @@ class SavedViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func pollyController(controller: PollyController, didFinishGetPolliesWithResponse response: AnyObject) {
-        print("\npollies: \(response)\n")
+        
+        savedPollys = response as! NSArray
+        tableView.reloadData()
     }
     
     // MARK: - Sample Data

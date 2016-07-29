@@ -38,6 +38,12 @@ class PollyController: NSObject {
         controller.getPollies()
     }
     
+    class func sharePollyOnSlack(pollyId: Int, delegate: AnyObject) {
+        let controller = self.getInstance()
+        controller.delegate = delegate
+        controller.shareOnSlack(pollyId)
+    }
+    
     private func uploadFile(fileUrl: NSURL, title: String) {
         
         // Show network indicator
@@ -101,7 +107,7 @@ class PollyController: NSObject {
                 case .Success(let JSON):
                     print("Success with JSON: \(JSON)")
                     
-                    let response = JSON as! NSDictionary
+                    let response = JSON as! NSArray
                     
                     if self.delegate!.respondsToSelector(#selector(PollyControllerDelegate.pollyController(_:didFinishGetPolliesWithResponse:))) {
                         self.delegate!.pollyController!(self, didFinishGetPolliesWithResponse: response)
@@ -117,8 +123,35 @@ class PollyController: NSObject {
                 
                 UIApplication.sharedApplication().networkActivityIndicatorVisible = false
             })
+    }
+    
+    private func shareOnSlack(pollyId: Int) {
         
+        let params = ["id": pollyId]
         
+        // Show network indicator
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+        
+        let manager = Alamofire.Manager.sharedInstance
+        
+        manager.request(.POST, API_BASE_URL + API_ENDPOINT_SLACK, parameters: params, encoding: .URL)
+            .responseJSON(options: NSJSONReadingOptions.AllowFragments, completionHandler: { response in
+                switch response.result {
+                case .Success(let data):
+                    print(data)
+                    if self.delegate!.respondsToSelector(#selector(PollyControllerDelegate.pollyController(_:didFinishSharingOnSlackWithResponse:))) {
+                        self.delegate!.pollyController!(self, didFinishSharingOnSlackWithResponse: data)
+                    }
+                case .Failure(let error):
+                    print(error)
+                    if self.delegate!.respondsToSelector(#selector(PollyControllerDelegate.pollyController(_:didFailSharingOnSlackWithError:))) {
+                        self.delegate!.pollyController!(self, didFailSharingOnSlackWithError: error)
+                    }
+                    
+                }
+                // Hide network indicator
+                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+            })
     }
 }
 
@@ -130,4 +163,7 @@ class PollyController: NSObject {
     
     optional func pollyController(controller: PollyController, didFinishGetPolliesWithResponse response:AnyObject)
     optional func pollyController(controller: PollyController, didFailGetPolliesWithError error:NSError)
+    
+    optional func pollyController(controller: PollyController, didFinishSharingOnSlackWithResponse response:AnyObject)
+    optional func pollyController(controller: PollyController, didFailSharingOnSlackWithError error:NSError)
 }
